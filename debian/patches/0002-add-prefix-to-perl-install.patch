@@ -1,0 +1,19 @@
+From: Hideki Yamane <henrich@debian.org>
+Date: Sat, 19 Nov 2016 20:44:51 +0900
+Subject: add $prefix to perl install
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--- a/Makefile
++++ b/Makefile
+@@ -31,7 +31,7 @@
+ 
+ perl:
+ 	( cd NKF.mod ; \
+-	$(PERL) Makefile.PL  ; \
++	$(PERL) Makefile.PL PREFIX=$(prefix) INSTALLDIRS=vendor; \
+ 	make ; \
+ 	make test )
+ 

@@ -1,0 +1,4 @@
+0001-add-DESTDIR-for-install.patch
+0002-add-prefix-to-perl-install.patch
+0003-manpages-should-be-in-usr-share-man.patch
+0004-fix-typo-in-nkf.1.patch

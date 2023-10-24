@@ -1,15 +1,26 @@
-Source: template-repository
-Section: unknown
+Source: nkf
+Section: text
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: debhelper (>= 10), perl (>= 5.6.0-16)
+Maintainer: NOKUBI Takatsugu <knok@daionet.gr.jp>
+Standards-Version: 4.3.0
+Homepage: https://osdn.net/projects/nkf/
+Vcs-Git: https://salsa.debian.org/debian/nkf.git
+Vcs-Browser: https://salsa.debian.org/debian/nkf
 
-Package: template-repository
+Package: nkf
 Architecture: any
+Multi-Arch: foreign
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Description: Network Kanji code conversion Filter
+ Nkf is yet another kanji code converter among networks,
+ hosts and terminals. It converts input kanji code to designated
+ kanji code such as 7-bit JIS, MS-kanji (Shifted-JIS) or EUC.
+
+Package: libnkf-perl
+Section: perl
+Architecture: any
+Depends: ${perl:Depends}, ${shlibs:Depends}, ${misc:Depends}
+Description: Network Kanji code conversion Filter for Perl
+ libnkf-perl will let you use the nkf (Network Kanji code conversion
+ filter) as NKF.pm from Perl programs.

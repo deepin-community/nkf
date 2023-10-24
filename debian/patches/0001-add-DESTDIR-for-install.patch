@@ -1,0 +1,39 @@
+From: Hideki Yamane <henrich@debian.org>
+Date: Sat, 19 Nov 2016 20:41:11 +0900
+Subject: add DESTDIR for install
+
+For making package (.deb, .rpm, etc), once install package temporary directory,
+then copy to each package. So we need DESTDIR.
+---
+ Makefile | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+--- a/Makefile
++++ b/Makefile
+@@ -46,18 +46,18 @@
+ install: install-main install-man install-man-ja
+ 
+ install-main:
+-	-$(MKDIR) $(prefix)/bin
+-	cp -f nkf $(prefix)/bin/
++	-$(MKDIR) -p $(DESTDIR)/$(prefix)/bin
++	cp -f nkf $(DESTDIR)/$(prefix)/bin/
+ 
+ install-man:
+-	-$(MKDIR) $(prefix)/man
+-	-$(MKDIR) $(prefix)/man/man1
+-	cp -f nkf.1 $(prefix)/man/man1/
++	-$(MKDIR) -p $(DESTDIR)/$(prefix)/man
++	-$(MKDIR) -p $(DESTDIR)/$(prefix)/man/man1
++	cp -f nkf.1 $(DESTDIR)/$(prefix)/man/man1/
+ 
+ install-man-ja:
+-	-$(MKDIR) $(prefix)/man/ja
+-	-$(MKDIR) $(prefix)/man/ja/man1
+-	cp -f nkf.1j $(prefix)/man/ja/man1/nkf.1
++	-$(MKDIR) -p $(DESTDIR)/$(prefix)/man/ja
++	-$(MKDIR) -p $(DESTDIR)/$(prefix)/man/ja/man1
++	cp -f nkf.1j $(DESTDIR)/$(prefix)/man/ja/man1/nkf.1
+ 
+ shar:
+ 	-mkdir nkf-$(VERSION)
